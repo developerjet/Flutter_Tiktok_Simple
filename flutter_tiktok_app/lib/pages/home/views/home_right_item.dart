@@ -3,14 +3,10 @@ import 'package:flutter/rendering.dart';
 import 'package:flutter_tiktok_app/pages/home/views/home_item_button.dart';
 import 'package:flutter_tiktok_app/theme/colors.dart';
 
-class HomeRightItem extends StatefulWidget {
-  const HomeRightItem({Key? key}) : super(key: key);
+class HomeRightItem extends StatelessWidget {
+  final VoidCallback onPressed;
+  const HomeRightItem({super.key, required this.onPressed});
 
-  @override
-  _HomeRightItemState createState() => _HomeRightItemState();
-}
-
-class _HomeRightItemState extends State<HomeRightItem> {
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -26,7 +22,7 @@ class _HomeRightItemState extends State<HomeRightItem> {
           HomeItemButton(
               title: "4321",
               image: Image.asset('assets/images/home_comment.png'),
-              onPressed: () {}),
+              onPressed: onPressed),
           // 发送
           HomeItemButton(
               title: "668",

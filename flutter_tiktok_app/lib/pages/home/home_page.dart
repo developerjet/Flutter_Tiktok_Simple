@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
+import 'package:flutter_tiktok_app/widgets/comment_bottom_sheet.dart';
 import 'package:flutter_tiktok_app/pages/home/views/home_right_item.dart';
 import 'package:flutter_tiktok_app/pages/home/views/home_user_follow.dart';
 import 'package:flutter_tiktok_app/pages/home/views/homt_title_tab.dart';
@@ -14,16 +15,9 @@ class HomePage extends StatefulWidget {
 
 class _HomePageState extends State<HomePage>
     with SingleTickerProviderStateMixin {
-  late TabController _tabController;
-
-  final List<String> titles = ["For You", "Following", "Live"];
-
   @override
   void initState() {
     super.initState();
-
-    _tabController =
-        TabController(length: titles.length, vsync: this); // 定义标签数量和vsync
   }
 
   @override
@@ -57,7 +51,7 @@ class _HomePageState extends State<HomePage>
               // 顶部内容
               Row(
                 children: [
-                  // 右侧音乐
+                  // 左侧音乐
                   Align(
                       alignment: Alignment.bottomRight,
                       child: Container(
@@ -72,11 +66,23 @@ class _HomePageState extends State<HomePage>
                           width: screenWidth * 0.2,
                           margin: EdgeInsets.only(top: screenHeight * 0.32),
                           alignment: Alignment.bottomRight,
-                          child: HomeRightItem()))
+                          child: HomeRightItem(onPressed: () {
+                            _showCustomBottomSheet(context);
+                          })))
                 ],
               )
             ])
           ]),
         ));
+  }
+
+  void _showCustomBottomSheet(BuildContext context) {
+    showModalBottomSheet(
+      context: context,
+      isScrollControlled: true,
+      builder: (BuildContext context) {
+        return HomeCommentSheet();
+      },
+    );
   }
 }

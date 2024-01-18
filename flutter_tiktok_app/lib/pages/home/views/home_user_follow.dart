@@ -57,7 +57,7 @@ class _HomeUserFollowState extends State<HomeUserFollow> {
                             "Fllow",
                             style: TextStyle(
                                 color: themeColor,
-                                fontWeight: FontWeight.bold,
+                                fontWeight: FontWeight.w500,
                                 fontSize: 15),
                           ),
                           onPressed: () {}))
