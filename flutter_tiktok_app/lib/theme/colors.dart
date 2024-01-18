@@ -8,3 +8,5 @@ const white =  Color(0xFFFFFFFF);
 const black =  Color(0xFF000000);
 const gray =  Color(0xFFEBEBF5);
 const blue = Color(0xFF64D2FF);
+const yellow = Color(0xFFFF9F0A);
+const purple = Color(0xFFBF5AF2);

@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_tiktok_app/theme/colors.dart';
 
-class CommentCell extends StatelessWidget {
-  const CommentCell({Key? key}) : super(key: key);
+class SheetCommentCell extends StatelessWidget {
+  const SheetCommentCell({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {

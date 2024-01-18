@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_tiktok_app/pages/home/views/comment_cell.dart';
+import 'package:flutter_tiktok_app/widgets/sheet_comment_cell.dart';
 import 'package:flutter_tiktok_app/theme/colors.dart';
 
 class HomeCommentSheet extends StatelessWidget {
@@ -60,7 +60,7 @@ class HomeCommentSheet extends StatelessWidget {
               child: ListView.builder(
             itemCount: 20,
             itemBuilder: (context, index) {
-              return CommentCell();
+              return SheetCommentCell();
             },
           ))
         ],

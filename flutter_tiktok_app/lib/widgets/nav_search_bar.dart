@@ -7,7 +7,7 @@ class CustomSearchBar extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-        color: black,
+        color: appBgColor1,
         height: 120,
         child: Column(
           children: [
