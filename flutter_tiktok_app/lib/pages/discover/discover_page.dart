@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_tiktok_app/pages/discover/search_page.dart';
 import 'package:flutter_tiktok_app/pages/discover/views/disCover_item_cell.dart';
 import 'package:flutter_tiktok_app/pages/discover/views/header_card_view.dart';
 import 'package:flutter_tiktok_app/pages/discover/model/discover_model.dart';
@@ -59,7 +60,12 @@ class _DiscoverPageState extends State<DiscoverPage> {
         backgroundColor: appBgColor1,
         body: Column(
           children: [
-            CustomSearchBar(),
+            CustomSearchBar(onTap: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => SearchPage()),
+              );
+            }),
             SizedBox(height: 8.0),
             Container(
                 child: Column(

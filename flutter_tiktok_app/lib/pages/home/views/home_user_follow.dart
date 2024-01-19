@@ -2,7 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_tiktok_app/theme/colors.dart';
 
 class HomeUserFollow extends StatefulWidget {
-  const HomeUserFollow({Key? key}) : super(key: key);
+  final VoidCallback onTap;
+  const HomeUserFollow({super.key, required this.onTap});
 
   @override
   _HomeUserFollowState createState() => _HomeUserFollowState();
@@ -38,29 +39,29 @@ class _HomeUserFollowState extends State<HomeUserFollow> {
                       width: 67,
                       height: 30,
                       child: TextButton(
-                          style: ButtonStyle(
-                            backgroundColor: MaterialStateProperty.all<Color>(
-                                white), // 设置背景颜色
-                            padding:
-                                MaterialStateProperty.all<EdgeInsetsGeometry>(
-                              EdgeInsets.symmetric(vertical: -5.0), // 设置内边距
-                            ),
-                            shape: MaterialStateProperty.all<
-                                RoundedRectangleBorder>(
-                              RoundedRectangleBorder(
-                                borderRadius:
-                                    BorderRadius.circular(15.0), // 设置圆角
-                              ),
+                        style: ButtonStyle(
+                          backgroundColor:
+                              MaterialStateProperty.all<Color>(white), // 设置背景颜色
+                          padding:
+                              MaterialStateProperty.all<EdgeInsetsGeometry>(
+                            EdgeInsets.symmetric(vertical: -5.0), // 设置内边距
+                          ),
+                          shape:
+                              MaterialStateProperty.all<RoundedRectangleBorder>(
+                            RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(15.0), // 设置圆角
                             ),
                           ),
-                          child: Text(
-                            "Fllow",
-                            style: TextStyle(
-                                color: themeColor,
-                                fontWeight: FontWeight.w500,
-                                fontSize: 15),
-                          ),
-                          onPressed: () {}))
+                        ),
+                        child: Text(
+                          "Fllow",
+                          style: TextStyle(
+                              color: themeColor,
+                              fontWeight: FontWeight.w500,
+                              fontSize: 15),
+                        ),
+                        onPressed: widget.onTap,
+                      ))
                 ],
               ),
             ),

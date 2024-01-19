@@ -10,4 +10,8 @@ Flutter 3.0，实现的简仿Tiktok，不依赖第三方库，原汁原味。
 |![image](https://github.com/developerjet/Flutter_Tiktok_Simple/blob/main/ScreenShot/iPhone_01.png)|![image](https://github.com/developerjet/Flutter_Tiktok_Simple/blob/main/ScreenShot/iPhone_02.png)|![image](https://github.com/developerjet/Flutter_Tiktok_Simple/blob/main/ScreenShot/iPhone_03.png)|
 
 
+| Login | Search | Comment |
+| -- | -- | -- |
+|![image](https://github.com/developerjet/Flutter_Tiktok_Simple/blob/main/ScreenShot/iPhone_04.png)|![image](https://github.com/developerjet/Flutter_Tiktok_Simple/blob/main/ScreenShot/iPhone_05.png)|![image](https://github.com/developerjet/Flutter_Tiktok_Simple/blob/main/ScreenShot/iPhone_06.png)|
+
 

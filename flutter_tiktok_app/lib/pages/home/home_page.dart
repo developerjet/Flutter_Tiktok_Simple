@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
+import 'package:flutter_tiktok_app/pages/login/login_page.dart';
 import 'package:flutter_tiktok_app/widgets/comment_bottom_sheet.dart';
 import 'package:flutter_tiktok_app/pages/home/views/home_right_item.dart';
 import 'package:flutter_tiktok_app/pages/home/views/home_user_follow.dart';
@@ -58,7 +59,13 @@ class _HomePageState extends State<HomePage>
                           width: screenWidth * 0.8,
                           margin: EdgeInsets.only(top: screenHeight * 0.55),
                           alignment: Alignment.bottomLeft,
-                          child: HomeUserFollow())),
+                          child: HomeUserFollow(onTap: () {
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) => LoginPage()),
+                            );
+                          }))),
                   // 右侧菜单
                   Align(
                       alignment: Alignment.bottomRight,

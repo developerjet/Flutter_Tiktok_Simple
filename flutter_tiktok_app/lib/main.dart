@@ -14,6 +14,9 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       theme: ThemeData(
+        inputDecorationTheme: InputDecorationTheme(
+          labelStyle: TextStyle(color: white),
+        ),
         colorScheme: ColorScheme.fromSeed(seedColor: themeColor),
         tabBarTheme: const TabBarTheme(dividerColor: Colors.transparent),
         useMaterial3: true,

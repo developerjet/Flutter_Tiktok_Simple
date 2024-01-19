@@ -48,7 +48,7 @@ class HomeCommentSheet extends StatelessWidget {
                     child: IconButton(
                   padding: EdgeInsets.symmetric(vertical: -8.0),
                   icon: Image.asset('assets/images/page_close.png',
-                    width: 30, height: 30),
+                      width: 30, height: 30),
                   onPressed: () {
                     Navigator.of(context).pop(); // 关闭底部表单
                   },
@@ -62,7 +62,41 @@ class HomeCommentSheet extends StatelessWidget {
             itemBuilder: (context, index) {
               return SheetCommentCell();
             },
-          ))
+          )),
+          Container(
+            height: 100,
+            color: appBgColor3,
+            child: Column(
+              children: [
+                SizedBox(height: 10.0),
+                Container(
+                  padding: EdgeInsets.only(left: 15.0, right: 15.0),
+                  height: 44,
+                  child: Container(
+                    decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(22.0),
+                        color: appBgColor2),
+                    child: Row(
+                      children: [
+                        SizedBox(width: 15.0),
+                        Text(
+                          "Add Comment...",
+                          style: TextStyle(
+                              color: gray.withAlpha(60), fontSize: 15),
+                        ),
+                        Align(
+                          widthFactor: 6.85,
+                          alignment: Alignment.centerRight,
+                          child: Image.asset('assets/images/comment_up.png',
+                              width: 36, height: 36),
+                        ),
+                      ],
+                    ),
+                  ),
+                )
+              ],
+            ),
+          )
         ],
       ),
     );
