@@ -46,7 +46,7 @@ class _HomtTitleTabState extends State<HomtTitleTab> {
                       });
                     },
                   ),
-                  SizedBox(width: 8.0),
+                  SizedBox(width: 2.0),
                   TextButton(
                     child: Text("Following",
                         style: TextStyle(
@@ -62,7 +62,7 @@ class _HomtTitleTabState extends State<HomtTitleTab> {
                       });
                     },
                   ),
-                  SizedBox(width: 8.0),
+                  SizedBox(width: 2.0),
                   TextButton(
                     child: Text("Live",
                         style: TextStyle(

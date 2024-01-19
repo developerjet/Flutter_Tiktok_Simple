@@ -32,27 +32,25 @@ class HomeCommentSheet extends StatelessWidget {
           ),
           Container(
             height: 50,
-            padding: EdgeInsets.all(15.0),
             child: Row(
               children: [
-                Container(
-                  width: screenWidth * 0.85,
-                  child: Align(
-                      alignment: Alignment.centerLeft,
-                      child: Text(
-                        "4231 Comments",
-                        style: TextStyle(color: white, fontSize: 17),
-                      )),
-                ),
                 Expanded(
+                    child: Container(
+                        padding: EdgeInsets.all(12.0),
+                        child: Text(
+                          "4231 Comments",
+                          style: TextStyle(color: white, fontSize: 17),
+                        ))),
+                Container(
+                    width: 50,
                     child: IconButton(
-                  padding: EdgeInsets.symmetric(vertical: -8.0),
-                  icon: Image.asset('assets/images/page_close.png',
-                      width: 30, height: 30),
-                  onPressed: () {
-                    Navigator.of(context).pop(); // 关闭底部表单
-                  },
-                ))
+                      icon: Image.asset('assets/images/page_close.png',
+                          width: 30, height: 30),
+                      onPressed: () {
+                        Navigator.of(context).pop(); // 关闭底部表单
+                      },
+                    )),
+                SizedBox(width: 5.0)
               ],
             ),
           ),
@@ -79,17 +77,17 @@ class HomeCommentSheet extends StatelessWidget {
                     child: Row(
                       children: [
                         SizedBox(width: 15.0),
-                        Text(
+                        Expanded(
+                            child: Text(
                           "Add Comment...",
                           style: TextStyle(
                               color: gray.withAlpha(60), fontSize: 15),
-                        ),
-                        Align(
-                          widthFactor: 6.85,
-                          alignment: Alignment.centerRight,
-                          child: Image.asset('assets/images/comment_up.png',
-                              width: 36, height: 36),
-                        ),
+                        )),
+                        Container(
+                            width: 36,
+                            child: Image.asset('assets/images/comment_up.png',
+                                width: 36, height: 36)),
+                        SizedBox(width: 5.0),
                       ],
                     ),
                   ),

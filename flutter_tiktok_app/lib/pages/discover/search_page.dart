@@ -10,6 +10,7 @@ class SearchPage extends StatefulWidget {
 
 class _SearchPageState extends State<SearchPage> {
   final _focusNode = FocusNode();
+  final _editingController = TextEditingController();
 
   final List<String> searchHistory = [
     'Flutter',
@@ -62,6 +63,7 @@ class _SearchPageState extends State<SearchPage> {
                           child: Container(
                               child: TextField(
                         focusNode: _focusNode,
+                        controller: _editingController,
                         decoration: InputDecoration(
                           hintText: 'Search',
                           labelStyle: TextStyle(color: white),
@@ -102,19 +104,25 @@ class _SearchPageState extends State<SearchPage> {
               spacing: 8.0,
               runSpacing: 8.0,
               children: List.generate(searchHistory.length, (index) {
-                return Container(
-                  height: 30,
-                  padding: EdgeInsets.fromLTRB(18.0, 5.0, 18.0, 5.0),
-                  decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(15.0),
-                      color: appBgColor2),
-                  child: Text(searchHistory[index],
-                      textAlign: TextAlign.center,
-                      style: TextStyle(
-                          color: gray.withAlpha(60),
-                          fontSize: 17,
-                          height: 1.0)),
-                );
+                return GestureDetector(
+                    child: Container(
+                      height: 30,
+                      padding: EdgeInsets.fromLTRB(18.0, 5.0, 18.0, 5.0),
+                      decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(15.0),
+                          color: appBgColor2),
+                      child: Text(searchHistory[index],
+                          textAlign: TextAlign.center,
+                          style: TextStyle(
+                              color: gray.withAlpha(60),
+                              fontSize: 17,
+                              height: 1.0)),
+                    ),
+                    onTap: () {
+                      setState(() {
+                        _editingController.text = searchHistory[index];
+                      });
+                    });
               }),
             ),
           ))

@@ -18,10 +18,13 @@ class MyApp extends StatelessWidget {
           labelStyle: TextStyle(color: white),
         ),
         colorScheme: ColorScheme.fromSeed(seedColor: themeColor),
-        tabBarTheme: const TabBarTheme(dividerColor: Colors.transparent),
+        splashColor: Colors.transparent,
+        highlightColor: Colors.transparent,
         useMaterial3: true,
       ),
       home: const Tabs(),
     );
   }
 }
+
+class NoInkSplash {}

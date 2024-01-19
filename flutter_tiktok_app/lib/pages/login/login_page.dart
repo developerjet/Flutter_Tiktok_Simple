@@ -27,7 +27,7 @@ class _LoginPageState extends State<LoginPage> {
             padding: EdgeInsets.only(top: 15.0),
             child: Row(
               children: [
-                SizedBox(width: 15.0),
+                SizedBox(width: 10.0),
                 IconButton(
                   icon: Image.asset('assets/images/white_back.png'),
                   onPressed: () {

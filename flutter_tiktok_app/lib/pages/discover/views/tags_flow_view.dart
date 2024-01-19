@@ -46,7 +46,7 @@ class TagsFlowView extends StatelessWidget {
           padding: EdgeInsets.fromLTRB(15, 15, 15, 0),
           child: Divider(
               height: 0.5, // 设置分割线的高度
-              color: gray.withAlpha(60)),
+              color: gray.withAlpha(20)),
         )
       ],
     );

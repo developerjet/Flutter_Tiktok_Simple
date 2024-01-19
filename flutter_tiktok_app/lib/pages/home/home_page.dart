@@ -1,3 +1,4 @@
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:flutter_tiktok_app/pages/login/login_page.dart';
@@ -37,18 +38,16 @@ class _HomePageState extends State<HomePage>
               height: screenHeight,
               fit: BoxFit.fill,
             ),
+            // 顶部选项
             Column(children: [
-              // 顶部选项
               Align(
                   alignment: Alignment.topLeft,
-                  child: Container(
-                      width: screenWidth * 0.7,
-                      child: HomtTitleTab(
-                        defaultIndex: 0,
-                        onPressed: (index) {
-                          print("Selected index ${index}");
-                        },
-                      ))),
+                  child: HomtTitleTab(
+                    defaultIndex: 0,
+                    onPressed: (index) {
+                      print("Selected index ${index}");
+                    },
+                  )),
               // 顶部内容
               Row(
                 children: [
