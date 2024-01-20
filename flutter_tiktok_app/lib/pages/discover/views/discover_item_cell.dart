@@ -15,7 +15,7 @@ class DisCoverItemCell extends StatelessWidget {
           width: 130,
           child: Image.asset(
             model.image,
-            fit: BoxFit.fill,
+            fit: BoxFit.cover,
           ),
         ),
         Align(

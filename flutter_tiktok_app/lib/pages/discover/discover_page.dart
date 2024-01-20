@@ -66,7 +66,7 @@ class _DiscoverPageState extends State<DiscoverPage> {
                 MaterialPageRoute(builder: (context) => SearchPage()),
               );
             }),
-            SizedBox(height: 8.0),
+            SizedBox(height: 5.0),
             Container(
                 child: Column(
               children: [
@@ -76,7 +76,6 @@ class _DiscoverPageState extends State<DiscoverPage> {
                 SizedBox(height: 5.0),
               ],
             )),
-            SizedBox(height: 0.1),
             Expanded(
                 child: ListView.builder(
               itemCount: dataList.length, //总共的分组

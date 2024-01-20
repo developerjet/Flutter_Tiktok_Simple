@@ -48,16 +48,16 @@ class _HomePageState extends State<HomePage>
                       print("Selected index ${index}");
                     },
                   )),
-              // 顶部内容
-              Row(
+              // 底部内容
+              Expanded(
+                  child: Row(
                 children: [
                   // 左侧音乐
                   Align(
-                      alignment: Alignment.bottomRight,
+                      alignment: Alignment.bottomLeft,
                       child: Container(
+                          height: 180,
                           width: screenWidth * 0.8,
-                          margin: EdgeInsets.only(top: screenHeight * 0.55),
-                          alignment: Alignment.bottomLeft,
                           child: HomeUserFollow(onTap: () {
                             Navigator.push(
                               context,
@@ -69,14 +69,14 @@ class _HomePageState extends State<HomePage>
                   Align(
                       alignment: Alignment.bottomRight,
                       child: Container(
+                          height: 360,
                           width: screenWidth * 0.2,
-                          margin: EdgeInsets.only(top: screenHeight * 0.32),
                           alignment: Alignment.bottomRight,
                           child: HomeRightItem(onPressed: () {
                             _showCustomBottomSheet(context);
                           })))
                 ],
-              )
+              )),
             ])
           ]),
         ));
@@ -87,7 +87,7 @@ class _HomePageState extends State<HomePage>
       context: context,
       isScrollControlled: true,
       builder: (BuildContext context) {
-        return HomeCommentSheet();
+        return const CommentBottomSheet();
       },
     );
   }
