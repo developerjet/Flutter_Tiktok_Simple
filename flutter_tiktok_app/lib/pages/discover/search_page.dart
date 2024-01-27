@@ -64,6 +64,7 @@ class _SearchPageState extends State<SearchPage> {
                               child: TextField(
                         focusNode: _focusNode,
                         controller: _editingController,
+                        style: TextStyle(color: white, fontSize: 17),
                         decoration: InputDecoration(
                           hintText: 'Search',
                           labelStyle: TextStyle(color: white),

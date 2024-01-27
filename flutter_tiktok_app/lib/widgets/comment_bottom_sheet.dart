@@ -52,20 +52,20 @@ class _CommentBottomSheetState extends State<CommentBottomSheet>
       setState(() {
         isKeyboardShow = false;
       });
-      print("==> 键盘关闭");
+      // print("==> 键盘关闭");
     } else if (bottom == keyboardHeight || keyboardHeight == 0) {
       setState(() {
         isKeyboardShow = true;
       });
-      print("==> 键盘打开");
+      // print("==> 键盘打开");
     } else {
       setState(() {
         isKeyboardShow = false;
       });
-      print("==> 键盘关闭");
+      // print("==> 键盘关闭");
     }
-    print(keyboardHeight);
 
+    // print(keyboardHeight);
     Future.delayed(Duration(microseconds: 1000), () => true);
   }
 
@@ -147,6 +147,7 @@ class _CommentBottomSheetState extends State<CommentBottomSheet>
                             child: TextField(
                           focusNode: _focusNode,
                           controller: _editingController,
+                          style: TextStyle(color: white, fontSize: 17),
                           decoration: InputDecoration(
                             hintText: 'Add Comment...',
                             labelStyle: TextStyle(color: white),
@@ -154,7 +155,7 @@ class _CommentBottomSheetState extends State<CommentBottomSheet>
                                 color: gray.withAlpha(60), fontSize: 17),
                             border: InputBorder.none,
                             contentPadding: EdgeInsets.symmetric(
-                                vertical: -15, horizontal: 15.0), // 设置垂直内边距
+                                vertical: -17, horizontal: 15.0), // 设置垂直内边距
                           ),
                           onChanged: (value) {
                             // 处理搜索框文本变化事件
