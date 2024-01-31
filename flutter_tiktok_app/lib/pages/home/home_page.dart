@@ -1,11 +1,13 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
+import 'package:audioplayers/audioplayers.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_tiktok_app/pages/login/login_page.dart';
 import 'package:flutter_tiktok_app/widgets/comment_bottom_sheet.dart';
 import 'package:flutter_tiktok_app/pages/home/views/home_right_item.dart';
 import 'package:flutter_tiktok_app/pages/home/views/home_user_follow.dart';
-import 'package:flutter_tiktok_app/pages/home/views/homt_title_tab.dart';
+import 'package:flutter_tiktok_app/pages/home/views/home_title_tab.dart';
 import 'package:flutter_tiktok_app/theme/colors.dart';
 
 class HomePage extends StatefulWidget {
@@ -17,9 +19,31 @@ class HomePage extends StatefulWidget {
 
 class _HomePageState extends State<HomePage>
     with SingleTickerProviderStateMixin {
+  late bool _isPlayer = true;
+  late AudioPlayer _audioPlayer;
+
   @override
   void initState() {
     super.initState();
+    _audioPlayer = AudioPlayer();
+
+    _playLocal();
+  }
+
+  Future _playLocal() async {
+    await _audioPlayer
+        .setSource(AssetSource(r'audio/fade.mp3'))
+        .then((value) {
+      _audioPlayer.play(AssetSource(r'audio/fade.mp3'));
+    });
+  }
+
+  Future<void> _pause() async {
+    await _audioPlayer.pause();
+  }
+
+  Future<void> _stop() async {
+    await _audioPlayer.stop();
   }
 
   @override
@@ -32,17 +56,30 @@ class _HomePageState extends State<HomePage>
         body: Container(
           child: Stack(children: [
             // 背景图
-            Image.network(
-              'https://hbimg.b0.upaiyun.com/d2d530ae853f0bc0cae8e24b1ce4bb26ee64477c1247ef-VG31Z7_fw658',
-              width: screenWidth,
-              height: screenHeight,
-              fit: BoxFit.fill,
+            GestureDetector(
+              child: Image.network(
+                'https://hbimg.b0.upaiyun.com/d2d530ae853f0bc0cae8e24b1ce4bb26ee64477c1247ef-VG31Z7_fw658',
+                width: screenWidth,
+                height: screenHeight,
+                fit: BoxFit.fill,
+              ),
+              onTap: () {
+                if (_isPlayer) {
+                  _pause();
+                  print("停止播放====");
+                  _isPlayer = false;
+                } else {
+                  _playLocal();
+                  print("开始播放====");
+                  _isPlayer = true;
+                }
+              },
             ),
             // 顶部选项
             Column(children: [
               Align(
                   alignment: Alignment.topLeft,
-                  child: HomtTitleTab(
+                  child: HomeTitleTab(
                     defaultIndex: 0,
                     onPressed: (index) {
                       print("Selected index ${index}");

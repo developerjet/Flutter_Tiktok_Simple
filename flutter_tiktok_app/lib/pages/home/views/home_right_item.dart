@@ -3,9 +3,26 @@ import 'package:flutter/rendering.dart';
 import 'package:flutter_tiktok_app/pages/home/views/home_item_button.dart';
 import 'package:flutter_tiktok_app/theme/colors.dart';
 
-class HomeRightItem extends StatelessWidget {
+class HomeRightItem extends StatefulWidget {
   final VoidCallback onPressed;
   const HomeRightItem({super.key, required this.onPressed});
+
+  @override
+  _HomeRightItemState createState() => _HomeRightItemState();
+}
+
+class _HomeRightItemState extends State<HomeRightItem>
+    with SingleTickerProviderStateMixin {
+  late AnimationController _controller;
+
+  @override
+  void initState() {
+    super.initState();
+    _controller = AnimationController(
+      vsync: this,
+      duration: Duration(seconds: 5), // 旋转周期
+    )..repeat(); // 重复旋转
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -22,7 +39,7 @@ class HomeRightItem extends StatelessWidget {
           HomeItemButton(
               title: "4321",
               image: Image.asset('assets/images/home_comment.png'),
-              onPressed: onPressed),
+              onPressed: widget.onPressed),
           // 发送
           HomeItemButton(
               title: "668",
@@ -42,8 +59,10 @@ class HomeRightItem extends StatelessWidget {
                           child: Container(
                             width: 40,
                             height: 40,
-                            child: Image.network(
-                                "https://img2.baidu.com/it/u=3071236289,1596536161&fm=253&fmt=auto&app=138&f=JPEG?w=400&h=400"),
+                            child: RotationTransition(
+                                turns: _controller,
+                                child: Image.network(
+                                    "https://img2.baidu.com/it/u=3071236289,1596536161&fm=253&fmt=auto&app=138&f=JPEG?w=400&h=400")),
                           ))))),
           SizedBox(height: 10),
         ]));

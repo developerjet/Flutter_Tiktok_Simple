@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_tiktok_app/theme/colors.dart';
 
@@ -10,6 +12,28 @@ class HomeUserFollow extends StatefulWidget {
 }
 
 class _HomeUserFollowState extends State<HomeUserFollow> {
+  final String musicText =
+      'Eyes blue like the atlantic Eyes blue like the atlantic Eyes blue like the atlantic';
+  ScrollController _scrollController = ScrollController();
+
+  @override
+  void initState() {
+    super.initState();
+    _startScrolling();
+  }
+
+  void _startScrolling() {
+    Timer.periodic(Duration(milliseconds: 40), (timer) {
+      if (_scrollController.hasClients) {
+        double scrollOffset = _scrollController.offset + 1;
+        if (scrollOffset > _scrollController.position.maxScrollExtent) {
+          scrollOffset = _scrollController.position.minScrollExtent;
+        }
+        _scrollController.jumpTo(scrollOffset);
+      }
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -79,11 +103,19 @@ class _HomeUserFollowState extends State<HomeUserFollow> {
                   Image.asset('assets/images/home_music_note.png',
                       width: 16, height: 16),
                   SizedBox(width: 5),
-                  Text("eyes blue like the atlantic",
-                      style: TextStyle(
-                          color: white,
-                          fontWeight: FontWeight.normal,
-                          fontSize: 15))
+                  Expanded(
+                    child: SingleChildScrollView(
+                      scrollDirection: Axis.horizontal,
+                      controller: _scrollController,
+                      child: Padding(
+                        padding: const EdgeInsets.all(2.0),
+                        child: Text(
+                          musicText,
+                          style: TextStyle(color: white, fontSize: 14.0),
+                        ),
+                      ),
+                    ),
+                  )
                 ],
               ),
             )
