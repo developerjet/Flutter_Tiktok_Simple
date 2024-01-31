@@ -7,6 +7,7 @@ Flutter 3.0，实现的简仿Tiktok，不依赖第三方库，原汁原味。
 
 ### APP安装
 | APK |
+| -- |
 |![image](https://github.com/developerjet/Flutter_Tiktok_Simple/blob/main/ScreenShot/apk_install.jpg)|
 
  ### Examples
